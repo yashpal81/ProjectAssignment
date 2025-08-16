@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Project</label>
+    <pluralLabel>Projects</pluralLabel>
+    <nameField>
+        <type>Text</type>
+        <label>Project Name</label>
+    </nameField>
+    <fields>
+        <fullName>Description__c</fullName>
+        <label>Description</label>
+        <type>LongTextArea</type>
+        <length>32768</length>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>isTemplate__c</fullName>
+        <label>Is Template</label>
+        <type>Checkbox</type>
+        <defaultValue>false</defaultValue>
+    </fields>
+    <fields>
+        <fullName>AssignedTo__c</fullName>
+        <label>Assigned To</label>
+        <type>Lookup</type>
+        <referenceTo>Contact</referenceTo>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <type>Picklist</type>
+        <picklistValues>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Inactive</fullName>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Completed</fullName>
+        </picklistValues>
+        <picklistValues>
+            <fullName>On Hold</fullName>
+        </picklistValues>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <label>Start Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <label>End Date</label>
+        <type>Date</type>
+    </fields>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <enableReports>true</enableReports>
+    <enableActivities>true</enableActivities>
+    <trackFieldHistory>true</trackFieldHistory>
+</CustomObject>

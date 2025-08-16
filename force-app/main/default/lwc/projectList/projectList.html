@@ -1,0 +1,12 @@
+<template>
+    <template if:true={projects}>
+        <ul>
+            <template for:each={projects} for:item="project">
+                <li key={project.Id}>{project.Name} - {project.Status__c}</li>
+            </template>
+        </ul>
+    </template>
+    <template if:true={error}>
+        <div class="slds-text-color_error">{error}</div>
+    </template>
+</template>
