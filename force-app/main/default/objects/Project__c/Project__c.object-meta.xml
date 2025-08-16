@@ -24,24 +24,38 @@
         <label>Assigned To</label>
         <type>Lookup</type>
         <referenceTo>Contact</referenceTo>
+        <relationshipName>AssignedProjects</relationshipName>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
         <label>Status</label>
         <type>Picklist</type>
-        <picklistValues>
-            <fullName>Active</fullName>
-            <default>true</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Inactive</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Completed</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>On Hold</fullName>
-        </picklistValues>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                    <label>Active</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <label>Inactive</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <label>Completed</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <label>On Hold</label>
+                    <isActive>true</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>StartDate__c</fullName>
@@ -57,5 +71,4 @@
     <sharingModel>ReadWrite</sharingModel>
     <enableReports>true</enableReports>
     <enableActivities>true</enableActivities>
-    <trackFieldHistory>true</trackFieldHistory>
 </CustomObject>

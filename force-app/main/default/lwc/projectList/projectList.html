@@ -1,10 +1,11 @@
 <template>
     <template if:true={projects}>
-        <ul>
-            <template for:each={projects} for:item="project">
-                <li key={project.Id}>{project.Name} - {project.Status__c}</li>
-            </template>
-        </ul>
+        <lightning-datatable
+            key-field="Id"
+            data={projects}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
     </template>
     <template if:true={error}>
         <div class="slds-text-color_error">{error}</div>

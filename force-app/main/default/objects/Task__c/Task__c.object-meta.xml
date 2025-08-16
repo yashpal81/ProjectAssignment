@@ -32,12 +32,14 @@
         <label>Assigned To</label>
         <type>Lookup</type>
         <referenceTo>Contact</referenceTo>
+        <relationshipName>AssignedTasks</relationshipName>
     </fields>
     <fields>
         <fullName>User_Lookup__c</fullName>
         <label>Assigned User</label>
         <type>Lookup</type>
         <referenceTo>User</referenceTo>
+        <relationshipName>UserTasks</relationshipName>
     </fields>
     <fields>
         <fullName>DueDate__c</fullName>
@@ -48,37 +50,63 @@
         <fullName>Status__c</fullName>
         <label>Status</label>
         <type>Picklist</type>
-        <picklistValues>
-            <fullName>Open</fullName>
-            <default>true</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>In Progress</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Completed</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Past Due</fullName>
-        </picklistValues>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <label>In Progress</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <label>Completed</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Past Due</fullName>
+                    <label>Past Due</label>
+                    <isActive>true</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Priority__c</fullName>
         <label>Priority</label>
         <type>Picklist</type>
-        <picklistValues>
-            <fullName>Low</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Medium</fullName>
-            <default>true</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>High</fullName>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Critical</fullName>
-        </picklistValues>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <label>Low</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>true</default>
+                    <label>Medium</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <label>High</label>
+                    <isActive>true</isActive>
+                </value>
+                <value>
+                    <fullName>Critical</fullName>
+                    <label>Critical</label>
+                    <isActive>true</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>EstimatedHours__c</fullName>
@@ -88,8 +116,7 @@
         <scale>1</scale>
     </fields>
     <deploymentStatus>Deployed</deploymentStatus>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <enableReports>true</enableReports>
     <enableActivities>true</enableActivities>
-    <trackFieldHistory>true</trackFieldHistory>
 </CustomObject>
