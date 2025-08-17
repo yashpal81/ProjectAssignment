@@ -342,6 +342,8 @@ System.debug('Max tasks: ' + AssignmentConfigUtil.getMaxTasksPerDay());
 
 ## Story 3: Create LWC component TaskList (Exposed) and as a Tab in Project's flexi page    
 **Expected Timeline:** Day 3 (8 hours)  
+<img width="1675" height="749" alt="image" src="https://github.com/user-attachments/assets/05deeca3-c390-4843-9f11-1484b37afbef" />
+<img width="1841" height="826" alt="image" src="https://github.com/user-attachments/assets/57028ee5-7b4f-42ad-8253-eba97ce744a3" />
 
 ### Detailed Steps:
 
@@ -407,6 +409,8 @@ Create a Schedulable class to trigger TaskStatusUpdateQueueable execution.
 
 ## Story 6: Create Project From Template (Action Link)  
 **Expected Timeline:** Day 6 (8 hours)  
+<img width="1894" height="612" alt="image" src="https://github.com/user-attachments/assets/6b0d54f5-2756-480a-9f41-64f815fc48d8" />
+<img width="1824" height="752" alt="image" src="https://github.com/user-attachments/assets/d5a266c4-ec4d-43b4-b05c-db38784a6ad9" />
 
 ### Detailed Implementation:
 
