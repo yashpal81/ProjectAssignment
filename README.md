@@ -365,6 +365,72 @@ System.debug('Max tasks: ' + AssignmentConfigUtil.getMaxTasksPerDay());
 - [ ] List of Project Tasks
 - [ ] Demo video
 
+## Story 4: Write Apex Classes and Triggers  
+**Expected Timeline:** Day 5 (8 hours)  
+
+### Detailed Implementation:
+
+#### 4.1 TaskTrigger.trigger 
+1.**Restrict Tasks Per Project**
+2.**Restrict Tasks Per Day** 
+
+#### 4.2 TaskTriggerHandler.cls 
+
+#### 4.3 ProjectTrigger.trigger 
+1.**Restrict duplicate Project Names**
+2.**Restrict Project from Deletion if all Tasks arent completed** 
+
+#### 4.4 ProjectTriggerHandler.cls 
+
+### Testing Implementation:
+
+### Deliverables:
+- [ ] TaskTrigger.trigger with proper handler pattern
+- [ ] TaskTriggerHandler.cls with business logic
+- [ ] ProjectTrigger.trigger with validation logic
+- [ ] ProjectTriggerHandler.cls with business logic
+- [ ] Test classes with 100% code coverage
+- [ ] Demo Video
+
+---
+
+## Story 5: Asynchronous Programming with Apex  
+**Expected Timeline:** Day 6 (8 hours)  
+
+### Detailed Implementation:
+
+#### 5.1 TaskStatusUpdateQueueable.cls (3 hours)
+Create a queueable Apex job to update overdue task statuses and send notifications, including logic for retrieving overdue tasks, updating statuses.
+#### 5.2 TaskStatusUpdateQueueableSchedulable.cls (3 hours)
+Create a Schedulable class to trigger TaskStatusUpdateQueueable execution.
+
+
+## Story 6: Create Project From Template (Action Link)  
+**Expected Timeline:** Day 6 (8 hours)  
+
+### Detailed Implementation:
+
+#### 6.1 LWC component QuickAction
+1.**Create a Lwc component QuickAction (Exposed, Target- RecordPage, AppPage and HomePage only )**
+2.**Create a Lwc component CreateProjectFromTemplate (Not Exposed)**
+3.**Add to a button "CreateProjectFromTemplate" In QuickAction**
+4.**Add Coponent to HomePage and RecordPage in side Panel** 
+
+#### 6.2 Apex implementation to get All Projects of Template type
+1.**Update ProjectController, ProjectService to get template Projects**
+2.**Update PrevillagedProjectSelector Class of withoutsharing to get all TemplateProjects**
+2.**Update ProjectController, ProjectService to add an api to create Copy of selected template Projects**
+
+
+#### 6.3 LWC component CreateProjectFromTemplate to display Teplate Project with radio button
+1.**List Projects in grid with radio button to select only one**
+2.**Add Input box to take New Project Name from user**
+2.**Lwc component and Apex controller integration**
+
+
+#### 6.4 (BONUS) Use Async Implementation using Queueable for CreateProject from Template 
+1.**CreateProjectFromTemplateQueueable**
+2.**Send Notification**
 
 ## Story 7: Create Permission Sets for Team Lead and Developer Personas  
 **Expected Timeline:** Day 2 (2 hours)  
@@ -471,38 +537,3 @@ Implementation summary: This controller is intended for admin operations and tem
 
 ---
 
-## Story 4: Write Apex Classes and Triggers  
-**Expected Timeline:** Day 5 (8 hours)  
-
-### Detailed Implementation:
-
-#### 4.1 ProjectTaskCRUDService.cls (2 hours)
-Implementation summary: This service class should handle CRUD operations for  PMC Project and PMC Task objects, including security checks, business logic validation, and exception handling. All logic must follow Salesforce best practices for bulk operations and error management. (Code block omitted for assignment compliance.)
-
-#### 4.2 TaskTrigger.trigger (2 hours)
-
-#### 4.3 TaskTriggerHandler.cls (2 hours)
-
-#### 4.4 ProjectTrigger.trigger (1 hour)
-
-### Testing Implementation:
-
-### Deliverables:
-- [ ] ProjectTaskCRUDService.cls with security checks
-- [ ] TaskTrigger.trigger with proper handler pattern
-- [ ] TaskTriggerHandler.cls with business logic
-- [ ] ProjectTrigger.trigger with validation logic
-- [ ] ProjectTriggerHandler.cls with audit logging
-- [ ] Test classes with 100% code coverage
-- [ ] Documentation of trigger logic and business rules
-
----
-
-## Story 5: Asynchronous Programming with Apex  
-**Expected Timeline:** Day 6 (8 hours)  
-
-### Detailed Implementation:
-
-#### 5.1 TaskStatusUpdateQueueable.cls (3 hours)
-Create a queueable Apex job to update overdue task statuses and send notifications, including logic for retrieving overdue tasks, updating statuses, sending emails, and error logging. No code block included per assignment requirements.
-#### 5.2 CreateProjectFromTemplateQueueable.cls (3 hours)
