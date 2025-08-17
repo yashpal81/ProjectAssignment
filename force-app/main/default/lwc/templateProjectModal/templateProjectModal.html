@@ -1,0 +1,56 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 id="modal-heading" class="slds-modal__title">Create Project From Template</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">
+                <!-- Project Details Block -->
+                <div class="slds-card slds-m-bottom_medium">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__body">
+                                <h2 class="slds-card__header-title">Project Details</h2>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="slds-card__body">
+                        <c-project-details
+                            new-project-name={newProjectName}
+                            new-start-date={newStartDate}
+                            new-end-date={newEndDate}
+                            onnamechange={handleNameChange}
+                            onstartdatechange={handleStartDateChange}
+                            onenddatechange={handleEndDateChange}
+                        ></c-project-details>
+                    </div>
+                </div>
+
+                <!-- Template Selection Block -->
+                <div class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__body">
+                                <h2 class="slds-card__header-title">Template Selection</h2>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="slds-card__body">
+                        <c-template-selection
+                            template-projects={templateProjects}
+                            template-columns={templateColumns}
+                            selected-template-id={selectedTemplateId}
+                            is-create-disabled={isCreateDisabled}
+                            ontemplateselect={handleTemplateSelection}
+                        ></c-template-selection>
+                    </div>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+                <lightning-button label="Create" variant="brand" onclick={handleCreate} disabled={isCreateDisabled}></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

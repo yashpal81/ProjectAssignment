@@ -29,14 +29,42 @@ export default class ProjectList extends LightningElement {
     newProjectName = '';
     newStartDate = '';
     newEndDate = '';
-    handleNameChange(event) {
-        this.newProjectName = event.target.value;
+    // Modal event handlers for child component
+    handleModalChange(event) {
+        const { selectedTemplateId, newProjectName, newStartDate, newEndDate } = event.detail;
+        this.selectedTemplateId = selectedTemplateId;
+        this.newProjectName = newProjectName;
+        this.newStartDate = newStartDate;
+        this.newEndDate = newEndDate;
+        this.isCreateDisabled = !selectedTemplateId;
     }
-    handleStartDateChange(event) {
-        this.newStartDate = event.target.value;
-    }
-    handleEndDateChange(event) {
-        this.newEndDate = event.target.value;
+    async handleModalCreate(event) {
+        const { templateProjectId, newName, newStartDate, newEndDate } = event.detail;
+        if (!templateProjectId) return;
+        try {
+            await startProjectCopyProcess({
+                templateProjectId,
+                newName,
+                newStartDate,
+                newEndDate
+            });
+            this.handleCloseTemplateModal();
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Project Creation Started',
+                    message: 'You will be notified when the project and its tasks are copied.',
+                    variant: 'info'
+                })
+            );
+        } catch (error) {
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error',
+                    message: error.body ? error.body.message : error.message,
+                    variant: 'error'
+                })
+            );
+        }
     }
 
     @wire(getUserProjects)
