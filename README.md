@@ -1,37 +1,5 @@
 # Epic: Salesforce Trainee Engineer  PMC Project Assignment
 
-## Lightning Web Component (LWC) Architecture Overview
-
-This project uses a modular LWC architecture for maintainable and scalable UI development. Below are the main components and their interactions:
-
-### Main Components
-
-- **projectList**: Displays the list of projects in a grid. Handles opening the modal for creating a project from a template.
-- **templateProjectModal**: Modal dialog for selecting a template project and entering details for the new project. Handles validation and user input.
-- **projectDetails**: Subcomponent of the modal, responsible for collecting the new project's name, start date, and end date.
-- **templateSelection**: Subcomponent of the modal, responsible for displaying available template projects and allowing the user to select one.
-
-### Component Interactions
-
-- `projectList` opens `templateProjectModal` when the user wants to create a project from a template.
-- `templateProjectModal` uses `projectDetails` and `templateSelection` for a clean separation of concerns:
-  - `projectDetails` collects user input for the new project's name and dates.
-  - `templateSelection` displays template projects and manages selection.
-- Events are used for communication:
-  - `projectDetails` emits events when the user changes the name or dates.
-  - `templateSelection` emits an event when a template project is selected.
-  - `templateProjectModal` validates that a template is selected before allowing creation, and emits a create event to `projectList`.
-- `projectList` listens for the create event and calls the Apex method to start the project copy process.
-
-### Validation
-
-- The modal enforces that a template project must be selected before creation. If not, an error event is emitted and can be displayed to the user.
-
-### Extensibility
-
-- The modular structure allows future enhancements, such as splitting `templateProjectModal` into more granular components or adding additional validation and UI features.
-
-
 ## Objective
 This Epic is designed for trainee engineers to gain hands-on practical experience with Salesforce development concepts including:
 - **Data modeling** with custom objects and relationships (Master-Detail, Lookup)
@@ -39,6 +7,7 @@ This Epic is designed for trainee engineers to gain hands-on practical experienc
 - **Apex programming:** CRUD operations, triggers, sharing models, security enforcement
 - **Custom Settings:** Hierarchical configuration management
 - **Security & Permissions:** CRUD, FLS checks, sharing rules, permission sets
+- **Error Handling:** error handling in Apex and lwc 
 - **Version Control:** Git workflows, branch protection, pull request reviews
 
 ---
@@ -154,11 +123,8 @@ This Epic is designed for trainee engineers to gain hands-on practical experienc
    - Object Name: ` PMC Project`
    - Record Name: ` PMC Project Name` (Text)
    - Allow Reports: ✅
-   - Allow Activities: ✅
-   - Track Field History: ✅
    - Allow Sharing: ✅
-   - Allow Bulk API Access: ✅
-   - Allow Streaming API Access: ✅
+   
 
 4. **Create Custom Fields:**
    ```
@@ -199,8 +165,7 @@ This Epic is designed for trainee engineers to gain hands-on practical experienc
    - Object Name: `PMC Task`
    - Record Name: `PMC Task Name` (Text)
    - Allow Reports: ✅
-   - Allow Activities: ✅
-   - Track Field History: ✅
+   
 
 4. **Create Master-Detail Relationship:**
    ```
@@ -456,16 +421,16 @@ Create a Schedulable class to trigger TaskStatusUpdateQueueable execution.
    - Create: ✅
    - Edit: ✅
    - Delete: ✅
-   - View All: ✅
-   - Modify All: ✅
+   - View All: ❌
+   - Modify All: ❌
    
    PMC_Task__c:
    - Read: ✅
    - Create: ✅
    - Edit: ✅
    - Delete: ✅
-   - View All: ✅
-   - Modify All: ✅
+   - View All: ❌
+   - Modify All: ❌
    ```
 
 5. **Field Permissions:** Grant access to all custom fields on both objects
